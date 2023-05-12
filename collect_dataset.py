@@ -33,8 +33,8 @@ def get_shanty(shanty_url):
     soup = http_get(shanty_url)
     shanty = soup.find('div', {'class': 'lyrics'})
     text = '\n'.join([l.strip() for l in shanty.text.strip().split('\n')])
-    # Indicate new verse with indentation
-    return re.sub(r'\n{2,}', '\n\t', text)
+    # Indicate new verse with semicolon
+    return re.sub(r'\n{2,}', ';\n', text)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

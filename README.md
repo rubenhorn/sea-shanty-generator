@@ -19,8 +19,9 @@ AI-generated sea shanties... yarrr
 6. Try the model using `python3 generate_shanty.py generated/model`
 
 ## Trained model in Google Colab
+Run the following cells in Google Colab:
 ```bash
-#@title Create dataset and trained model
+#@title Create dataset and train model
 !rm -rf sea-shanty-generator && \
 git clone https://github.com/rubenhorn/sea-shanty-generator.git && \
 cd sea-shanty-generator && \
@@ -28,5 +29,10 @@ pip install -r requirements.txt && \
 python3 collect_dataset.py generated/raw_dataset.json && \
 time python3 train.py generated/raw_dataset.json generated/model && \
 zip -r generated.zip generated && \
-python3 -c "from google.colab import files; files.download('generated.zip')"
+```
+and
+```python
+#@title Download dataset and trained model
+from google.colab import files
+files.download('generated.zip')
 ```
