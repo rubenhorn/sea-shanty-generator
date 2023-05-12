@@ -28,11 +28,11 @@ cd sea-shanty-generator && \
 pip install -r requirements.txt && \
 python3 collect_dataset.py generated/raw_dataset.json && \
 time python3 train.py generated/raw_dataset.json generated/model && \
-zip -r generated.zip generated && \
+zip -r generated.zip generated
 ```
 and
 ```python
 #@title Download dataset and trained model
 from google.colab import files
-files.download('generated.zip')
+files.download('sea-shanty-generator/generated.zip')
 ```

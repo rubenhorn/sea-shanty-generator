@@ -25,6 +25,15 @@ def load_datasets(filename, train_eval_split=0.9):
     return train_dataset, eval_dataset
 
 
+def get_training_args():
+    return TrainingArguments(
+        'test-trainer',
+        optim='adamw_torch',
+        num_train_epochs=5,
+        output_dir=sys.argv[2],
+    )
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
@@ -50,7 +59,7 @@ if __name__ == "__main__":
     # Train
     data_collator = DataCollatorForLanguageModeling(
         tokenizer=tokenizer, mlm=False)
-    training_args = TrainingArguments('test-trainer', optim='adamw_torch')
+    training_args = get_training_args()
     trainer = Trainer(
         create_pretrained_model(),
         training_args,
