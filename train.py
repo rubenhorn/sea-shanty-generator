@@ -6,8 +6,7 @@ import sys
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 
-CHECKPOINT = 'gpt2'
-
+CHECKPOINT = 'distilgpt2'
 
 def create_pretrained_tokenizer():
     tokenizer = AutoTokenizer.from_pretrained(CHECKPOINT)
@@ -29,8 +28,13 @@ def load_datasets(filename, train_eval_split=0.9):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
-            f'Usage: python3 {sys.argv[0]} <input json file> <output model path>', file=sys.stderr)
+            f'Usage: python3 {sys.argv[0]} <input json file> <output model path> [<checkpoint>]', file=sys.stderr)
         sys.exit(1)
+
+    if len(sys.argv) < 4:
+        print(f'No checkpoint specified. Using default model: {CHECKPOINT}')
+    else:
+        CHECKPOINT = sys.argv[3]
 
     # Load dataset
     tokenizer = create_pretrained_tokenizer()

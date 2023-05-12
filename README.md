@@ -14,5 +14,5 @@ AI-generated sea shanties... yarrr
 2. (Optional) Install torch for CPU if you don't have CUDA: `pip3 install torch --index-url https://download.pytorch.org/whl/cpu`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Run `python3 collect_dataset.py output/raw_dataset.json` to download the dataset
-5. Train the model using `time python3 train.py output/raw_dataset.json output/model`
+5. Train the model using `time python3 train.py output/raw_dataset.json output/model [<checkpoint>]`
 6. Try the model using `python3 generate_shanty.py output/model`
