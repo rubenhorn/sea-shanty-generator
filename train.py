@@ -30,7 +30,6 @@ def get_training_args():
         'test-trainer',
         optim='adamw_torch',
         num_train_epochs=5,
-        output_dir=sys.argv[2],
     )
 
 
