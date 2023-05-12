@@ -2,4 +2,4 @@ accelerate
 beautifulsoup4
 datasets
 requests
-transformers==4.28.0
+transformers==4.28.0 # Mitigation of a bug that occured in Google Colab

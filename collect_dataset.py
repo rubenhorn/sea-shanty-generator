@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 import json, re, requests, sys
+from pathlib import Path
 
 SHANTY_LIST_URL = 'https://shanty.rendance.org/lyrics/shanties.php'
 
@@ -51,6 +52,8 @@ if __name__ == '__main__':
     shanties_json = json.dumps([{'text': s} for s in shanties], indent=4)
     print(f'\nWriting to {sys.argv[1]}...',
           file=sys.stderr, end='', flush=True)
-    with open(sys.argv[1], 'w') as f:
+    output_file = Path(sys.argv[1])
+    output_file.touch(exist_ok=True, parents=True)
+    with open(output_file, 'w') as f:
         f.write(shanties_json)
     print('done', file=sys.stderr)
