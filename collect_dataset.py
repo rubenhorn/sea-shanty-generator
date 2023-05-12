@@ -53,7 +53,7 @@ if __name__ == '__main__':
     print(f'\nWriting to {sys.argv[1]}...',
           file=sys.stderr, end='', flush=True)
     output_file = Path(sys.argv[1])
-    output_file.touch(exist_ok=True, parents=True)
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     with open(output_file, 'w') as f:
         f.write(shanties_json)
     print('done', file=sys.stderr)
