@@ -28,7 +28,7 @@ def load_datasets(filename, train_eval_split=0.9):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
-            f'Usage: python3 {sys.argv[0]} <input json file> <output model path> [<checkpoint>]', file=sys.stderr)
+            f'Usage: python3 {sys.argv[0]} <input json file> <generated model path> [<checkpoint>]', file=sys.stderr)
         sys.exit(1)
 
     if len(sys.argv) < 4:

@@ -2,9 +2,7 @@
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
-import json
-import requests
-import sys
+import json, re, requests, sys
 
 SHANTY_LIST_URL = 'https://shanty.rendance.org/lyrics/shanties.php'
 
@@ -33,14 +31,14 @@ def get_shanty(shanty_url):
     """Get the lyrics of a shanty."""
     soup = http_get(shanty_url)
     shanty = soup.find('div', {'class': 'lyrics'})
-    # remove leading/trailing whitespace and double newlines
-    return '\n'.join([l.strip() for l in shanty.text.strip().split('\n')]).replace('\n\n', '\n')
-
+    text = '\n'.join([l.strip() for l in shanty.text.strip().split('\n')])
+    # Indicate new verse with indentation
+    return re.sub(r'\n{2,}', '\n\t', text)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print(
-            f'Usage: python3 {sys.argv[0]} <output json file>', file=sys.stderr)
+            f'Usage: python3 {sys.argv[0]} <generated json file>', file=sys.stderr)
         sys.exit(1)
 
     def download_shanties(shanty_urls):
