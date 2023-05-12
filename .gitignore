@@ -1,6 +1,6 @@
 # === Generated file ===
 generated/
-*.zips
+*.zip
 
 # === Python ===
 # Byte-compiled / optimized / DLL files

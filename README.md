@@ -1,9 +1,19 @@
 # Sea Shanty Generator
 AI-generated sea shanties... yarrr
 
+Here's a taste of the lyrical genius you can expect 😂
+```
+> Up jumps a crab with his crooked legs
+Up jumps a crab with his crooked legs, I wonder what a sweetie! That's really the look. A crab with his crooked legs, I wonder what a sweetie! Whoa, a crab with a crooked legs, that's my name! So I go with the crab and go to the water,
+
+Bitch you're a scoundrel
+How long that'll take, I'm going to give her a day
+And go and wash your clothes all down
+```
+
 ## TODOs
 - [x] Obtain the initial dataset from http://shanty.rendance.org
-- [ ] Augment dataset (switch up pronouns, names, places, etc. using NER and dictionary/MLM)
+- [ ] Augment dataset (switch up pronouns, names, places, etc. using NER and dictionary/MLM or paraphrase using eugenesiow/bart-paraphrase)
 - [x] Train text generation model
 - [ ] Resumable and longer training
 - [ ] Deploy model to huggingface model hub
@@ -18,7 +28,7 @@ AI-generated sea shanties... yarrr
 5. Train the model using `time python3 train.py generated/raw_dataset.json generated/model [<checkpoint>]`
 6. Try the model using `python3 generate_shanty.py generated/model`
 
-## Trained model in Google Colab
+## Train model in Google Colab
 Run the following cells in Google Colab:
 ```bash
 #@title Create dataset and train model
