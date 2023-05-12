@@ -1,0 +1,5 @@
+accelerate
+beautifulsoup4
+datasets
+requests
+transformers==4.28.0
