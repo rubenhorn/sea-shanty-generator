@@ -4,7 +4,8 @@ AI-generated sea shanties... yarrr
 ## TODOs
 - [x] Obtain the initial dataset from http://shanty.rendance.org
 - [ ] Augment dataset (switch up pronouns, names, places, etc. using NER and dictionary/MLM)
-- [x] Train GPT-2 model
+- [x] Train text generation model
+- [ ] Resumable and longer training
 - [ ] Deploy model to huggingface model hub
 - [ ] ???   
 - [ ] Profit
