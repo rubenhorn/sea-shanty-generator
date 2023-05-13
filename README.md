@@ -27,7 +27,7 @@ And go and wash your clothes all down
 4. Run `python3 collect_dataset.py generated/raw_dataset.json` to download the dataset
 5. Augment the dataset with `python3 augment_dataset.py generated/raw_dataset.json generated/augmented_dataset.json`
 6. Train the model using `time python3 train.py generated/augmented_dataset.json generated/model [<checkpoint>]`
-7. Try the model using `python3 generate_shanty.py generated/model`
+7. Try the model using `python3 interactive_demo.py generated/model`
 
 ## Train model in Google Colab
 Run the following cells in Google Colab:
@@ -39,7 +39,7 @@ cd sea-shanty-generator && \
 pip install -r requirements.txt && \
 python3 collect_dataset.py generated/raw_dataset.json && \
 python3 augment_dataset.py generated/raw_dataset.json generated/augmented_dataset.json && \
-time python3 train.py generated/augmented_dataset.json generated/model distilgpt2 100 && \
+time python3 train.py generated/augmented_dataset.json generated/model distilgpt2 10 && \
 zip -r generated.zip generated
 ```
 and

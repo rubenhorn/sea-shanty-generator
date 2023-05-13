@@ -18,7 +18,8 @@ if __name__ == "__main__":
     while True:
         try:
             prompt = input('> ')
-            print(generator(prompt, max_length=100, pad_token_id=generator.tokenizer.eos_token_id)[0]['generated_text'])
+            print(generator(prompt, max_length=100,
+                  pad_token_id=generator.tokenizer.eos_token_id)[0]['generated_text'])
         except:
             print()
             sys.exit(0)

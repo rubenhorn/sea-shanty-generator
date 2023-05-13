@@ -7,7 +7,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 
 CHECKPOINT = 'distilgpt2'
-EPOCHS = 20
+EPOCHS = 5
 
 
 def create_pretrained_tokenizer():

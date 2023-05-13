@@ -11,12 +11,15 @@ if len(sys.argv) < 3:
     print(f'Usage: python3 {sys.argv[0]} <input json file> <output json file>')
     sys.exit(1)
 
+print(f'\nReading {sys.argv[1]}...',
+      file=sys.stderr, end='', flush=True)
 with open(sys.argv[1], 'r') as f:
     data = json.load(f)
+print('done', file=sys.stderr)
 
 shanties = [x['text'] for x in data]
 
-print(f'Original dataset size: {len(shanties)}')
+print(f'Original dataset size: {len(shanties)}', file=sys.stderr)
 
 gender_swapping = [('he', 'she'), ('his', 'her'),  # FIXME does not consider 'him'
                    ('himself', 'herself'),
@@ -37,7 +40,7 @@ antonyms = [('near', 'far'), ('north', 'south'),
             ('ship', 'boat'), ('ships', 'boats'),
             ('big', 'small'), ('sun', 'moon'),
             ('gold', 'silver'),
-            ('golden', 'shiny'), # Not really antonyms, but close enough
+            ('golden', 'shiny'),  # Not really antonyms, but close enough
             ]
 
 synonyms = [('sailor', 'seaman'), ('but', 'yet'),
@@ -80,7 +83,10 @@ shanties = apply_substitution(
 shanties = list(set(shanties))
 random.shuffle(shanties)
 
-print(f'Augmented dataset size: {len(shanties)}')
+print(f'Augmented dataset size: {len(shanties)}', file=sys.stderr)
 
+print(f'\nWriting to {sys.argv[2]}...',
+      file=sys.stderr, end='', flush=True)
 with open(sys.argv[2], 'w') as f:
     json.dump([{'text': x} for x in shanties], f, indent=2)
+print('done', file=sys.stderr)

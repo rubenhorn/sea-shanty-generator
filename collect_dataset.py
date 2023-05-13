@@ -2,7 +2,10 @@
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
-import json, re, requests, sys
+import json
+import re
+import requests
+import sys
 from pathlib import Path
 
 SHANTY_LIST_URL = 'https://shanty.rendance.org/lyrics/shanties.php'
@@ -35,6 +38,7 @@ def get_shanty(shanty_url):
     text = '\n'.join([l.strip() for l in shanty.text.strip().split('\n')])
     # Indicate new verse with semicolon
     return re.sub(r'\n{2,}', ';\n', text)
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
