@@ -39,7 +39,7 @@ cd sea-shanty-generator && \
 pip install -r requirements.txt && \
 python3 collect_dataset.py generated/raw_dataset.json && \
 python3 augment_dataset.py generated/raw_dataset.json generated/augmented_dataset.json && \
-time python3 train.py generated/augmented_dataset.json generated/model && \
+time python3 train.py generated/augmented_dataset.json generated/model distilgpt2 100 && \
 zip -r generated.zip generated
 ```
 and

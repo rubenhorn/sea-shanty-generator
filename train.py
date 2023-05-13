@@ -7,6 +7,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 
 CHECKPOINT = 'distilgpt2'
+EPOCHS = 20
+
 
 def create_pretrained_tokenizer():
     tokenizer = AutoTokenizer.from_pretrained(CHECKPOINT)
@@ -29,20 +31,23 @@ def get_training_args():
     return TrainingArguments(
         'test-trainer',
         optim='adamw_torch',
-        num_train_epochs=20,
+        num_train_epochs=EPOCHS,
     )
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print(
-            f'Usage: python3 {sys.argv[0]} <input json file> <generated model path> [<checkpoint>]', file=sys.stderr)
+            f'Usage: python3 {sys.argv[0]} <input json file> <generated model path> [<checkpoint>] [<epochs>]', file=sys.stderr)
         sys.exit(1)
 
     if len(sys.argv) < 4:
         print(f'No checkpoint specified. Using default model: {CHECKPOINT}')
     else:
         CHECKPOINT = sys.argv[3]
+
+    if len(sys.argv) >= 5:
+        EPOCHS = int(sys.argv[4])
 
     # Load dataset
     tokenizer = create_pretrained_tokenizer()
