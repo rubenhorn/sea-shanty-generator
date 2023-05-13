@@ -29,7 +29,7 @@ def get_training_args():
     return TrainingArguments(
         'test-trainer',
         optim='adamw_torch',
-        num_train_epochs=5,
+        num_train_epochs=20,
     )
 
 

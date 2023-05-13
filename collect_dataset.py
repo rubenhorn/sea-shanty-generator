@@ -49,7 +49,7 @@ if __name__ == '__main__':
             print('done', file=sys.stderr)
     print('Downloading shanties', file=sys.stderr)
     shanties = download_shanties(get_shanty_links())
-    shanties_json = json.dumps([{'text': s} for s in shanties], indent=4)
+    shanties_json = json.dumps([{'text': s} for s in shanties], indent=2)
     print(f'\nWriting to {sys.argv[1]}...',
           file=sys.stderr, end='', flush=True)
     output_file = Path(sys.argv[1])
